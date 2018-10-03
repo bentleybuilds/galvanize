@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hangman</title>
+  </head>
+  <body>
+    <h1>Hangman</h1>
+      <script type="text/javascript">
+        // Creating the array that holds potential words
+        var words = ["metal", "fantasy", "hiking", "strategy", "games", "family","wood", "brine", "water", "earth"];
+
+        // randomizing words
+        var word = words[Math.floor(Math.random() * words.length)];
+
+        //creating answer array
+        var answerArray = [];
+        for (var i=0; i < word.length; i++)
+          {
+            answerArray[i] = "_";
+          }
+
+      var remainingLetters = word.length;
+
+      // game loop
+
+      while (remainingLetters > 0){
+      // show the Meat Popsicle their progress
+      alert(answerArray.join(" "));
+
+      // Get a guess from the Meat Popsicle
+      var guess = prompt("Guess a letter, or click Cancel to stop playing.");
+        if (guess === null) {
+        // Exit Loop
+        break;
+      } else if (guess.length !== 1) {
+        alert("Please enter a single letter.");
+      } else {
+        //Update the game state with guess
+        for (var j=0; j<word.length; j++){
+          if (word[j]=== guess) {
+            answerArray[j] = guess;
+            remainingLetters --;
+          }
+        }
+      }
+        //Game loop ends
+      }
+
+      //Show answer and congratulate Meat Popsicle
+
+      alert(answerArray.join(" "));
+      alert("Good job! The answer was " + word);
+      </script>
+  </body>
+</html>
