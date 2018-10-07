@@ -26,7 +26,7 @@
 
       while (remainingLetters > 0){
       // show the Meat Popsicle their progress
-      alert(answerArray.join(" "));
+      alert("Guess the word!\n" answerArray.join(" "));
 
       // Get a guess from the Meat Popsicle
       var guess = prompt("Guess a letter, or click Cancel to stop playing.");
@@ -34,11 +34,11 @@
         // Exit Loop
         break;
       } else if (guess.length !== 1) {
-        alert("Please enter a single letter.");
+        alert("Current progress \n" answerArray.join(" ") "\nPlease enter a single letter.");
       } else {
         //Update the game state with guess
         for (var j=0; j<word.length; j++){
-          if (word[j]=== guess) {
+          if (word[j]=== guess || guess.toLowerCase()) {
             answerArray[j] = guess;
             remainingLetters --;
           }
@@ -52,5 +52,6 @@
       alert(answerArray.join(" "));
       alert("Good job! The answer was " + word);
       </script>
+      <p>If you enjoyed this and want try another word, refresh the page.</p>
   </body>
 </html>
